@@ -1,0 +1,17 @@
+Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+AllCops:
+  RunRailsCops: true
+  Include:
+    - Gemfile
+    - lib/tasks/*
+  Exclude:
+    - db/schema.rb
+    - vendor/**/*
+    - bin/**/*
+    - config/initializers/**/*
+    - db/migrate/*devise*.rb

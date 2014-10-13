@@ -1,6 +1,9 @@
 $(function() {
   if ($('.directUpload').length > 0) {
     $.get( "/pspost", function( s3params ) {
+
+      var currentUploads = 0;  // Helper to enable submit after all uploads are finished
+
       $('.directUpload').find("input:file").each(function(i, elem) {
         var fileInput    = $(elem);
         var form         = $(fileInput.parents('form:first'));
@@ -8,6 +11,7 @@ $(function() {
         var progressBar  = $("<div class='bar'></div>");
         var barContainer = $("<div class='progress'></div>").append(progressBar);
         fileInput.after(barContainer);
+
         fileInput.fileupload({
           fileInput:       fileInput,
           url:             "http://" + s3params.url.host,
@@ -22,7 +26,9 @@ $(function() {
             progressBar.css('width', progress + '%')
           },
           start: function (e) {
-            submitButton.prop('disabled', true);
+            if(++currentUploads == 1) {
+             submitButton.prop('disabled', true);
+            }
 
             progressBar.
               css('background', 'green').
@@ -31,7 +37,10 @@ $(function() {
               text("Loading...");
           },
           done: function(e, data) {
-            submitButton.prop('disabled', false);
+            if(--currentUploads == 0) {
+             submitButton.prop('disabled', false);
+            }
+
             progressBar.text("Uploading done");
 
             // extract key and generate URL from response
@@ -42,7 +51,9 @@ $(function() {
             form.append(input);
           },
           fail: function(e, data) {
-            submitButton.prop('disabled', false);
+            if(--currentUploads == 0) {
+             submitButton.prop('disabled', false);
+            }
 
             progressBar.
               css("background", "red").

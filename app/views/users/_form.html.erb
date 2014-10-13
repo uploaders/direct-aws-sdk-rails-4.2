@@ -16,8 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :avatar_url %><br>
+    <%= f.label :avatar_url, 'Avatar' %><br>
     <%= f.file_field :avatar_url %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_url, 'Profile Picture' %><br>
+    <%= f.file_field :profile_url %>
   </div>
   <div class="actions">
     <%= f.submit %>
