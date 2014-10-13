@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pry'
+
 # AWS SDK
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
