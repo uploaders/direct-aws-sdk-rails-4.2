@@ -33,6 +33,8 @@ $(function() {
           done: function(e, data) {
             submitButton.prop('disabled', false);
 
+            progressBar.addClass('done');
+
             // extract key and generate URL from response
             var location   = $(data.jqXHR.responseXML).find("Location").text();
 
@@ -44,7 +46,7 @@ $(function() {
             submitButton.prop('disabled', false);
 
             progressBar.
-              css("background", "red").
+              addClass('failed').
               text("Failed");
           }
         });
