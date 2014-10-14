@@ -146,7 +146,7 @@ Rails.application.routes.draw do
 end
 ```
 
-### Setup Views
+### Setup views
 
 Now we are going to setup our views so the user can actually do something!
 
