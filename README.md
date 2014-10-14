@@ -1,6 +1,6 @@
 #Direct S3 File Upload for Rails
 
-This is a demo app for Rails for S3 file upload using aws-sdk and jQuery File Upload, useful for Heroku. A user can upload avatars for their friends. This is useful for creating a list of user profiles or a Who We Are page for a company site.
+This is a demo app for Rails for S3 file upload using aws-sdk and jQuery File Upload, useful for Heroku. A user can upload avatars for their friends. This is useful for creating a list of user profiles or a Who We Are page for a company site. However, the upload code can be used for any file handling.
 
 ##Credit:
   * [Phil Wilt](http://github.com/phillwilt)
