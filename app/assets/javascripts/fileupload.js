@@ -1,15 +1,13 @@
 $(function() {
-  if ($('.directUpload').length > 0) {
+  if ($('.direct-upload').length > 0) {
     $.get( "/pspost", function( s3params ) {
 
-      var currentUploads = 0;  // Helper to enable submit after all uploads are finished
-
-      $('.directUpload').find("input:file").each(function(i, elem) {
+      $('.direct-upload').find("input:file").each(function(i, elem) {
         var fileInput    = $(elem);
         var form         = $(fileInput.parents('form:first'));
         var submitButton = form.find('input[type="submit"]');
-        var progressBar  = $("<div class='bar'></div>");
-        var barContainer = $("<div class='progress'></div>").append(progressBar);
+        var progressBar  = $("<div class='meter'></div>");
+        var barContainer = $("<div class='progress-bar'></div>").append(progressBar);
         fileInput.after(barContainer);
 
         fileInput.fileupload({
@@ -26,22 +24,14 @@ $(function() {
             progressBar.css('width', progress + '%')
           },
           start: function (e) {
-            if(++currentUploads == 1) {
-             submitButton.prop('disabled', true);
-            }
-
+            submitButton.prop('disabled', true);
+            barContainer.css('display', 'block');
             progressBar.
-              css('background', 'green').
               css('display', 'block').
-              css('width', '0%').
-              text("Loading...");
+              css('width', '0%')
           },
           done: function(e, data) {
-            if(--currentUploads == 0) {
-             submitButton.prop('disabled', false);
-            }
-
-            progressBar.text("Uploading done");
+            submitButton.prop('disabled', false);
 
             // extract key and generate URL from response
             var location   = $(data.jqXHR.responseXML).find("Location").text();
@@ -51,9 +41,7 @@ $(function() {
             form.append(input);
           },
           fail: function(e, data) {
-            if(--currentUploads == 0) {
-             submitButton.prop('disabled', false);
-            }
+            submitButton.prop('disabled', false);
 
             progressBar.
               css("background", "red").

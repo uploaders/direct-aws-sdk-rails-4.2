@@ -1,0 +1,29 @@
+body {
+  @include outer-container;
+}
+
+.direct-upload {
+  @include span-columns(6);
+  @include shift(3);
+}
+
+#head-wrapper {
+  @include row;
+  h1 {
+    @include shift(1);
+  }
+}
+
+#nav-wrapper {
+  @include row;
+
+  a {
+    @include shift(1);
+  }
+}
+
+.direct-upload {
+  @include pad;
+  background-color: $light-gray;
+  color: $dark-gray
+}

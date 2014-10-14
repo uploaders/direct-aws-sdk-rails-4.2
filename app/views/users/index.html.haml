@@ -1,0 +1,14 @@
+%p#notice= notice
+#head-wrapper
+  %h1 Friends
+
+#nav-wrapper
+  = link_to 'New Friend', new_user_path, class: 'button round'
+
+%br
+
+.grid-items
+  - @users.each do |user|
+    = render 'users/user', user: user
+
+%br

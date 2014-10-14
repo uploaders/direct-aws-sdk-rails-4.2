@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'aws-sdk'
 gem 'bitters'
 gem 'bourbon'
+gem 'haml'
+gem 'haml-rails'
 gem 'neat'
 gem 'refills'
 
@@ -25,8 +27,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
