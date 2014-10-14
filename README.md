@@ -9,8 +9,10 @@ This is a demo app for Rails for S3 file upload using aws-sdk and jQuery File Up
 
 ## Screenshots
 
+#### File upload form
 ![New Friend Form](https://s3-us-west-2.amazonaws.com/philwilt/githubimages/friendsnew.png)
 
+#### See your friends
 ![Friends View](https://s3-us-west-2.amazonaws.com/philwilt/githubimages/friendsindex.png)
 
 ## Tutorial
