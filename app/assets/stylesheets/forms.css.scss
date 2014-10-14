@@ -1,0 +1,20 @@
+.errors {
+  @include pad(10px 20px);
+  font-size: rem(15);
+  font-weight: 500;
+  background: $light-red;
+  color: red;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  ul {
+    list-style: bu;
+  }
+}
+.field_with_errors {
+  label {
+    color: red;
+  }
+  label::before {
+    content: '*';
+  }
+}

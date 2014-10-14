@@ -1,0 +1,50 @@
+%flash-ext {
+  @include row;
+  @include shift(1);
+  @include span-columns(10);
+  @include border-top-radius(0.5rem);
+  @include border-bottom-radius(0.5rem);
+  @include border-left-radius(0.5rem);
+  @include border-right-radius(0.5rem);
+  display: inline-block;
+  margin-top: 6rem;
+  text-align: center;
+  vertical-align: bottom;
+
+  .close {
+    float: left;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    vertical-align: middle;
+  }
+}
+
+.flash-notice {
+  @extend %flash-notice;
+  @extend %flash-ext;
+}
+
+.flash-error {
+  @extend %flash-error;
+  @extend %flash-ext;
+  border-radius: .5rem;
+}
+
+.flash-success {
+  @extend %flash-success;
+  @extend %flash-ext;
+}
+
+#form-flash-error {
+  @extend %flash-ext;
+  background: $error-color;
+  .error-heading {
+    margin: 0.5rem;
+  }
+}
+
+.form-error {
+  @extend %error;
+  @extend %flash-ext;
+  background: $error-color;
+}

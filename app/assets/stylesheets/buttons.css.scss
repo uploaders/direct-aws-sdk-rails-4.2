@@ -1,0 +1,14 @@
+button,
+input[type="submit"] {
+  background-color: $blue;
+}
+
+.button {
+  @extend %button;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: $blue;
+}
