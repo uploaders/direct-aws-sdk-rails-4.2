@@ -9,6 +9,10 @@ This is a demo app for Rails for S3 file upload using aws-sdk and jQuery File Up
 
 ## Screenshots
 
+![New Friend Form](https://s3-us-west-2.amazonaws.com/philwilt/githubimages/friendsnew.png)
+
+![Friends View](https://s3-us-west-2.amazonaws.com/philwilt/githubimages/friendsindex.png)
+
 ## Tutorial
 
 ### Prerequistes
@@ -63,7 +67,7 @@ class S3Controller < ApplicationController
 end
 ```
 
-A presigned post is what allows us to post to amazon securly. Notice we have set a few configuration variables. In our `key` we upload to a folder called `uploads/#{SecureRandom.uuid}`. This is an uploads folder followed by a unique folder name which prevents filename overrides. The `success_action_status` is the header code to return upon upload. And then we set the permission on the file with our `acl` parameter. Next we render our a json response with the parameters we need in our javascript, more on those to come.
+A presigned post is what allows us to post to amazon securly. Notice we have set a few configuration variables. In our `key` we upload to a folder called `uploads/#{SecureRandom.uuid}`. This is an uploads folder followed by a unique folder name which prevents filename overrides. The `success_action_status` is the header code to return upon upload. And then we set the permission on the file with our `acl` parameter. Next we render a json response with the parameters we need in our javascript, more on those to come.
 
 ### Install Haml gems (optional)
 
@@ -80,6 +84,7 @@ We will now create a user model and controller. First generate a model with `rai
 
 ```
 # models/user.rb
+
 class User < ActiveRecord::Base
   validates_presence_of :name
 end
